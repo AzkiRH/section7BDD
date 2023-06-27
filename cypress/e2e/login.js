@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import LoginPage from './login.page';
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor")
 
@@ -6,12 +8,12 @@ Given('I open login page', () => {
 })
 
 When('I submit login', () => {
-    LoginPage.fillUsername('username')
-    LoginPage.fillPassword('password')
-    LoginPage.signIn()
+    LoginPage.fillUsername('username');
+    LoginPage.fillPassword('password');
+    LoginPage.signIn();
 })
 
 Then('I should see homepage', () => {
-    cy.get('#homeMenu').should('be.visible')
-    cy.get('#homeMenu').should('equal', 'Home')
+    cy.get('#account_summary_tab').should('be.visible');
+    cy.get('#account_summary_tab a').should('contain', 'Account Summary');
 })

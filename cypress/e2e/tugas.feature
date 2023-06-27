@@ -1,9 +1,11 @@
-Feature: Submit Transfer Funds Feature
+Feature: Submit Feedback Feature
 
-    As a valid user
-    i want to be able to give Transfer Funds
 
-    Scenario: Submit something for transfer funds
-        Given i open the transfer funds page
-        When I input transfer funds form and submit
-        Then I should see the message that the transfer funds successfully submitted your transaction
+    As a user
+    I want to be able to give a feedback
+
+
+    Scenario: Submit something for feedback
+        Given I open the feedback page
+        When I input feedback form and submit
+        Then I should see the message that the feedback i gave, succses and will be reviewed by CS staff

@@ -1,22 +1,20 @@
 {
-  "name": "edubdd",
+  "name": "educy",
   "version": "1.0.0",
-  "description": "automation test with cypress bdd",
+  "description": "automation ui using cypress (learn)",
   "main": "index.js",
   "author": "azkirh",
   "license": "MIT",
-  "devDependencies": {
-    "cypress": "^12.15.0",
-    "prettier": "^2.8.8"
-  },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^18.0.1",
     "@cypress/browserify-preprocessor": "^3.0.2",
-    "cypress-cucumber-preprocessor": "^4.3.1"
+    "cypress": "^12.16.0"
   },
-
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:open": "cypress open"
+  },
+  "repository": "https://github.com/AzkiRH/section7BDD.git",
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
