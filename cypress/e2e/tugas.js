@@ -1,19 +1,21 @@
 /// <reference types="cypress" />
 
+import tugaspage from './tugas.page.js';
 const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor');
 
 
 Given('I open the feedback page', () => {
-    cy.visit('http://zero.webappsecurity.com/feedback.html');
+    tugaspage.visit();
 })
 
 
 When('I input feedback form and submit', () => {
-    cy.get('#name').type('azki');
-    cy.get('#email').type('azkirh@gmail.com');
-    cy.get('#subject').type('give the feedback');
-    cy.get('#comment').type('this is some feedback');
-    cy.contains('Send Message').click();
+    tugaspage.fillName();
+    tugaspage.fillEmail();
+    tugaspage.fillSubject();
+    tugaspage.fillComment();
+    tugaspage.submit123();
+
 })
 
 Then('I should see the message that the feedback i gave, succses and will be reviewed by CS staff', () => {
