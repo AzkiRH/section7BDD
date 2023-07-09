@@ -40,7 +40,7 @@ describe('End-to-End Testing - Midtrans Demo', () => {
         cy.get('[id="snap-midtrans"]').then($element=> {
             const $body = $element.contents().find('body')
             // cy.log($body)
-            // Gopay
+            // Shopeepay
             let stripe = cy.wrap($body)
             cy.log(stripe)
             stripe.find('[alt="ShopeePay"]').click()
@@ -64,7 +64,7 @@ describe('End-to-End Testing - Midtrans Demo', () => {
             const $body = $element.contents().find('body')
             let stripe = cy.wrap($body)
 
-            // BCA
+            // BNI
             stripe.find('[alt="BNI"]').click()
             stripe = cy.wrap($body)
             stripe.find('[class="bank-list-layout"]').then(paymentList => {
