@@ -29,24 +29,34 @@ describe('End-to-End Testing - Validate Login',{ testIsolation: false }, () => {
     cy.contains('Hello Azki Rafsanjani Hermawan').should('be.visible')
   })
 
-  it('Trying to Logout from the application', () => {
-    // cy.get('[class="btn btn-border btn-login btn-xs light"]').click()
-    // cy.get('[class="modal-content"]').should('be.visible')
-    // cy.get('#email').type('azkirh.jobs@gmail.com')
-    // cy.get('#Password').type('azkiboys22')
-    // cy.get('#login').click()
-    // cy.contains('Hello Azki Rafsanjani Hermawan').should('be.visible')
-    //cy.get('[class="menu-custom-area"]').find('class="dropdown"').trigger('mouseover').then((menu) => {
-    //cy.get('Logout').click()
-    cy.get('[class="menu-custom-area"]').find('class="menu-right"').then((menuRight) => {
+  // it('Should go to Profile Page', () => {
+  //   cy.get('[class="menu-custom-area"]').find('[class="menu-right"]')
+  //       .then((menuRight) => {
+  //         cy.get(menuRight).find('[class="lan-menu"]').then((lanMenu) => {
+  //         cy.get(lanMenu).find('[class="dropdown"]').realHover('mouse').wait(1000)
+  //       })
+              
+  //     })
+  //     cy.get('[href="https://upscale.id/profile"]').click()
+  //     cy.get('h2').should('be.visible')
+  //     cy.get('[id="about"]').should('include.text', 'About')
+  //     cy.wait(1000)
+  // })
 
+  it('Trying to Logout from the application', () => {
+    cy.get('[class="menu-custom-area"]').find('[class="menu-right"]')
+        .then((menuRight) => {
+          cy.get(menuRight).find('[class="lan-menu"]').then((lanMenu) => {
+          cy.get(lanMenu).find('[class="dropdown"]').realHover('mouse').wait(1000)
+        })
+              
+      })
+      cy.get('[href="https://upscale.id/member/logout"]').click()
+      cy.wait(1000)
     })
-  })
+
 
 describe('Navbar test', function() {
-    before(() => {
-        cy.visit('https://upscale.id/')
-    })
 
   it('Should display For Business content', () => {
       cy.contains('For Business').click()
@@ -65,6 +75,34 @@ describe('Navbar test', function() {
   it('Should display Home content', () => {
       cy.contains('Home').click()
       cy.url().should('include', 'https://upscale.id/')
+      cy.get('h2').should('be.visible')
+      cy.get('[class="slide-title2"]').should('include.text', 'Kami membantu meng-handle semua urusan "talent", agar anda dapat fokus pada pengembangan bisnis')
+    })
+
+  it('Should change the language ID-EN', () => {
+      cy.get('[class="menu-cnt"]').find('[class="menu-right"]')
+        .then((menuRight) => {
+          cy.get(menuRight).find('[class="lan-menu"]').then((lanMenu) => {
+          cy.get(lanMenu).find('[class="dropdown"]').realHover('mouse').wait(1000)
+        })
+              
+      })
+      cy.get('[href="https://upscale.id?lang=en"]').click()
+      cy.wait(1000)
+      cy.get('h2').should('be.visible')
+      cy.get('[class="slide-title2"]').should('include.text', 'Just focus on scaling your business and let us do the "Talent" things')
+    })
+
+  it('Should change the language EN-ID', () => {
+      cy.get('[class="menu-cnt"]').find('[class="menu-right"]')
+        .then((menuRight) => {
+          cy.get(menuRight).find('[class="lan-menu"]').then((lanMenu) => {
+          cy.get(lanMenu).find('[class="dropdown"]').realHover('mouse').wait(1000)
+        })
+              
+      })
+      cy.get('[href="https://upscale.id?lang=id"]').click()
+      cy.wait(1000)
       cy.get('h2').should('be.visible')
       cy.get('[class="slide-title2"]').should('include.text', 'Kami membantu meng-handle semua urusan "talent", agar anda dapat fokus pada pengembangan bisnis')
     })
